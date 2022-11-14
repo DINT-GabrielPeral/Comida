@@ -118,7 +118,7 @@
                         </StackPanel>
 
                     </GroupBox>
-                    <Button Margin="5">Limpiar Seleccion</Button>
+                    <Button Margin="5" Width="100" HorizontalAlignment="Left" >Limpiar Seleccion</Button>
                 </StackPanel>
                 <ListBox SelectedItem="{Binding Path=PlatoSeleccionado}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  ItemsSource="{Binding Path=Platos}">
                     <ListBox.ItemsPanel>
