@@ -60,7 +60,7 @@
             <Setter Property="DockPanel.Dock" Value="Right"></Setter>
             <Setter Property="Visibility" Value="Collapsed"></Setter>
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Path=Sulfito}" Value="True">
+                <DataTrigger Binding="{Binding Path=Sulfitos}" Value="True">
                     <Setter Property="Visibility" Value="Visible">
                     </Setter>
                 </DataTrigger>
@@ -93,34 +93,34 @@
     
     
     <DockPanel LastChildFill="True" Background="LightSkyBlue">
-        <Border BorderThickness="2" Margin="10" Padding="10" BorderBrush="Black">
+        <Border BorderThickness="2" Margin="10" Padding="10" BorderBrush="Black" Background="White">
             <DockPanel LastChildFill="True">
-                <StackPanel DockPanel.Dock="Right" Width="200" Margin="10,0,0,0" Background="Gray">
+                <StackPanel DockPanel.Dock="Right" Width="200" Margin="10,0,0,0" Background="LightGray">
                     <TextBlock Margin="5">Nombre del plato</TextBlock>
-                    <TextBox Margin="5"></TextBox>
+                    <TextBox Text="{Binding Path=PlatoSeleccionado.Nombre}" Margin="5"></TextBox>
                     <TextBlock Margin="5">Foto del plato</TextBlock>
-                    <TextBox Margin="5"></TextBox>
+                    <TextBox Text="{Binding Path=PlatoSeleccionado.Imagen}" Margin="5"></TextBox>
                     <TextBlock Margin="5">tipo de comida</TextBlock>
-                    <ComboBox Margin="5">
-                        <ComboBoxItem></ComboBoxItem>
+                    <ComboBox ItemsSource="{Binding Path=Tipos}" SelectedItem="{Binding Path=PlatoSeleccionado.Tipo}" Margin="5">
+                        
                     </ComboBox>
-                    <GroupBox Margin="5">
+                    <GroupBox Margin="5" BorderBrush="Black">
                         <GroupBox.Header>Alérgenos</GroupBox.Header>
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Vertical" Margin="0,0,20,0">
-                                <CheckBox>Leche</CheckBox>
-                                <CheckBox>Gluten</CheckBox>
+                                <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Leche}">Leche</CheckBox>
+                                <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Gluten}">Gluten</CheckBox>
                             </StackPanel>
                             <StackPanel Orientation="Vertical">
-                                <CheckBox>Soja</CheckBox>
-                                <CheckBox>Sulfito</CheckBox>
+                                <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Soja}">Soja</CheckBox>
+                                <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Sulfito}">Sulfito</CheckBox>
                             </StackPanel>
                         </StackPanel>
 
                     </GroupBox>
-                    <Button Margin="5">Seleccionar</Button>
+                    <Button Margin="5">Limpiar Seleccion</Button>
                 </StackPanel>
-                <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled"  ItemsSource="{Binding Path=Platos}">
+                <ListBox SelectedItem="{Binding Path=PlatoSeleccionado}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  ItemsSource="{Binding Path=Platos}">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel></WrapPanel>

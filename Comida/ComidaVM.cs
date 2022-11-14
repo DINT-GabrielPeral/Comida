@@ -13,7 +13,14 @@ namespace Comida
     {
         private ObservableCollection<Plato> platos;
         private Plato platoSeleccionado;
-        
+        ObservableCollection<string> tipos = new ObservableCollection<string>();
+
+        public ObservableCollection<string>Tipos
+        {
+            get { return tipos; }
+            set { tipos = value; }
+        }
+
 
         public Plato PlatoSeleccionado
         {
@@ -38,6 +45,11 @@ namespace Comida
         {
             Platos = new ObservableCollection<Plato>();
             Platos = Plato.GetSamples("recursos/");
+
+            tipos.Add("Americana");
+            tipos.Add("Mexicana");
+            tipos.Add("China");
+            
         }
 
         public event NotifyCollectionChangedEventHandler CollectionChanged;
