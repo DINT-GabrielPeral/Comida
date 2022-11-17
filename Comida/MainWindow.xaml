@@ -100,7 +100,7 @@
                     <TextBox Text="{Binding Path=PlatoSeleccionado.Nombre}" Margin="5"></TextBox>
                     <TextBlock Margin="5">Foto del plato</TextBlock>
                     <TextBox Text="{Binding Path=PlatoSeleccionado.Imagen}" Margin="5"></TextBox>
-                    <TextBlock Margin="5">tipo de comida</TextBlock>
+                    <TextBlock Margin="5">Tipo de comida</TextBlock>
                     <ComboBox ItemsSource="{Binding Path=Tipos}" SelectedItem="{Binding Path=PlatoSeleccionado.Tipo}" Margin="5">
                         
                     </ComboBox>
@@ -118,7 +118,7 @@
                         </StackPanel>
 
                     </GroupBox>
-                    <Button Margin="5" Width="100" HorizontalAlignment="Left" >Limpiar Seleccion</Button>
+                    <Button Margin="5" Width="100" HorizontalAlignment="Left" Click="Button_Click" >Limpiar Seleccion</Button>
                 </StackPanel>
                 <ListBox SelectedItem="{Binding Path=PlatoSeleccionado}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  ItemsSource="{Binding Path=Platos}">
                     <ListBox.ItemsPanel>

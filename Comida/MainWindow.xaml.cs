@@ -28,5 +28,9 @@ namespace Comida
             this.DataContext = vm;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            vm.PlatoSeleccionado = null;
+        }
     }
 }
